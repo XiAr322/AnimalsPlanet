@@ -1,4 +1,6 @@
-using Code.MainMenu;
+using Code.Animals;
+using Code.Environment;
+using Code.SimulationUi;
 using Zenject;
 
 namespace Code.Simulation
@@ -7,8 +9,11 @@ namespace Code.Simulation
     {
         public override void InstallBindings()
         {
-            Container.Bind<MainMenuFactory>().AsSingle().NonLazy();
-            Container.Bind<MainMenuManager>().AsSingle().NonLazy();
+            EnvironmentInstaller.Install(Container);
+            SimulationUiInstaller.Install(Container);
+            AnimalsInstaller.Install(Container);
+
+            Container.BindInterfacesAndSelfTo<SimulationManager>().AsSingle().NonLazy();
         }
     }
 }

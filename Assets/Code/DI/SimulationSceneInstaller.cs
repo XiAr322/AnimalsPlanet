@@ -1,4 +1,5 @@
 using Code.Simulation;
+using Code.SimulationUi;
 using Zenject;
 
 namespace Code.DI
@@ -8,6 +9,7 @@ namespace Code.DI
         public override void InstallBindings()
         {
             SimulationInstaller.Install(Container);
+            SimulationUiInstaller.Install(Container);
         }
     }
 }
