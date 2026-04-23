@@ -1,3 +1,4 @@
+using Code.MainMenu;
 using Zenject;
 
 namespace Code.DI
@@ -6,6 +7,7 @@ namespace Code.DI
     {
         public override void InstallBindings()
         {
+            MainMenuInstaller.Install(Container);
         }
     }
 }

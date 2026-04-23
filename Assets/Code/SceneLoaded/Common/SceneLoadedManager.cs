@@ -2,17 +2,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cysharp.Threading.Tasks;
 
-namespace Code.SceneLoaded.Common
+namespace Code.SceneLoaded
 {
     public class SceneLoadedManager
     {
         private const string MAIN_SCENE = "MainMenu";
-        private const string LEVEL_SCENE = "SampleScene";
+        private const string LEVEL_SCENE = "Simulation";
 
         public async UniTask LoadLevel()
         {
-            // await SwitchScene(MAIN_SCENE, LEVEL_SCENE);
-            await SwitchScene(MAIN_SCENE, "Game");
+            await SwitchScene(MAIN_SCENE, LEVEL_SCENE);
         }
 
         private async UniTask LoadScene(string sceneName)
@@ -23,7 +22,7 @@ namespace Code.SceneLoaded.Common
                 loadOperation.allowSceneActivation = true;
                 while (!loadOperation.isDone)
                 {
-                    float progress = Mathf.Clamp01(loadOperation.progress / 0.9f) * 100f;
+                    var progress = Mathf.Clamp01(loadOperation.progress / 0.9f) * 100f;
                     Debug.Log($"Loading scene {sceneName}: {progress:F0}%");
                     await UniTask.NextFrame();
                 }
@@ -38,7 +37,7 @@ namespace Code.SceneLoaded.Common
             {
                 while (!unloadOperation.isDone)
                 {
-                    float progress = Mathf.Clamp01(unloadOperation.progress) * 100f;
+                    var progress = Mathf.Clamp01(unloadOperation.progress) * 100f;
                     Debug.Log($"Unloading scene {sceneName}: {progress:F0}%");
                     await UniTask.NextFrame();
                 }

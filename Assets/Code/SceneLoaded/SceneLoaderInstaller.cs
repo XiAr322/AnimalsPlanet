@@ -1,4 +1,4 @@
-using Code.SceneLoaded.Common;
+using Code.SceneLoaded;
 using Zenject;
 
 namespace Code.SceneLoaded
