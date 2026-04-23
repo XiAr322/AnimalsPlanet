@@ -20,9 +20,7 @@ namespace Code.Animals.Prey
         {
             var direction = IsInsidePlayField() ? RandomPlanarDirection() : DirectionToCenter();
             var impulse = direction * Model.JumpForce + Vector3.up * (Model.JumpForce * 0.6f);
-
-            View.Rigidbody.linearVelocity = Vector3.zero;
-            View.Rigidbody.AddForce(impulse, ForceMode.VelocityChange);
+            View.Jump(impulse);
         }
 
         private static Vector3 RandomPlanarDirection()

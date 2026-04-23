@@ -17,9 +17,8 @@ namespace Code.Animals.Predator
             if (!IsInsidePlayField())
                 _direction = DirectionToCenter();
 
-            var currentY = View.Rigidbody.linearVelocity.y;
-            View.Rigidbody.linearVelocity = new Vector3(_direction.x * Model.Speed, currentY, _direction.z * Model.Speed);
-            View.Transform.rotation = Quaternion.LookRotation(_direction, Vector3.up);
+            View.Move(_direction, Model.Speed);
+            View.LookTowards(_direction);
         }
 
         private static Vector3 RandomPlanarDirection()
