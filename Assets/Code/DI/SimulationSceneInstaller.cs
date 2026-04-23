@@ -1,5 +1,4 @@
 using Code.Simulation;
-using Code.SimulationUi;
 using Zenject;
 
 namespace Code.DI

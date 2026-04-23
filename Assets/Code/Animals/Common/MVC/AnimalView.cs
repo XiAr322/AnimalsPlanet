@@ -20,8 +20,14 @@ namespace Code.Animals
             Collided?.Invoke(collision.collider.transform.root.gameObject);
         }
 
-        public void ShowTasty() => _tastyLabel.SetActive(true);
+        public void ShowTasty()
+        {
+            _tastyLabel.SetActive(true);
+            _tastyLabel.transform.forward = Camera.main.transform.forward;
+        }
+
         public void HideTasty() => _tastyLabel.SetActive(false);
+        
         public void Remove() => Destroy(gameObject);
     }
 }
