@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(grep -v \"\\\\.cs\\\\.meta$\\\\|\\\\.prefab\\\\.meta$\")"
+      "Bash(grep -v \"\\\\.cs\\\\.meta$\\\\|\\\\.prefab\\\\.meta$\")",
+      "Bash(mkdir -p /Users/artem/Documents/GitHub/AnimalsPlanet/Assets/Code/Environment/Resources)",
+      "Bash(mkdir -p /Users/artem/Documents/GitHub/AnimalsPlanet/Assets/Code/SimulationUi/Resources)"
     ]
   }
 }
